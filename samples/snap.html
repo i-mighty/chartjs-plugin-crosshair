@@ -9,7 +9,7 @@
     <link rel="icon" type="image/ico" href="favicon.ico" />
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.0/dist/chart.min.js"></script>
-    <script src="../dist/chartjs-plugin-crosshair.js"></script>
+    <script src="../dist/@i-mighty/chartjs-plugin-crosshair-point.js"></script>
   </head>
   <body>
     <div id="header">
@@ -30,7 +30,7 @@
         </a>
         <a
           class="btn btn-gh"
-          href="https://github.com/abelheinsbroek/chartjs-plugin-crosshair"
+          href="https://github.com/i-mighty/chartjs-plugin-crosshair-point"
         >
           GitHub
         </a>
@@ -42,8 +42,10 @@
 
   <script>
     function generateDataset(label, color) {
-      const data = Array.from({length: 12}, () => Math.floor(Math.random() * 12));
-      
+      const data = Array.from({ length: 12 }, () =>
+        Math.floor(Math.random() * 12)
+      );
+
       return {
         backgroundColor: color,
         borderColor: color,
@@ -62,14 +64,14 @@
         plugins: {
           crosshair: {
             sync: {
-              enabled: false
+              enabled: false,
             },
             zoom: {
-              enabled: false
+              enabled: false,
             },
             snap: {
-              enabled: true
-            }
+              enabled: true,
+            },
           },
           tooltip: {
             mode: "index",
@@ -78,19 +80,30 @@
         },
 
         hover: {
-          intersect: false
+          intersect: false,
         },
-
-
       },
       data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        labels: [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ],
         datasets: [
           generateDataset("A", "red"),
           generateDataset("B", "green"),
-          generateDataset("C", "blue")
-        ]
-      }
+          generateDataset("C", "blue"),
+        ],
+      },
     });
   </script>
 </html>

@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.0/dist/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@0.1.1"></script>
-    <script src="../dist/chartjs-plugin-crosshair.js"></script>
+    <script src="../dist/@i-mighty/chartjs-plugin-crosshair-point.js"></script>
   </head>
   <body>
     <div id="header">
@@ -32,7 +32,7 @@
         </a>
         <a
           class="btn btn-gh"
-          href="https://github.com/abelheinsbroek/chartjs-plugin-crosshair"
+          href="https://github.com/i-mighty/chartjs-plugin-crosshair"
         >
           GitHub
         </a>
@@ -74,7 +74,7 @@
         label: label,
         data: data,
         lineTension: 0,
-        interpolate: true
+        interpolate: true,
       };
       return dataset;
     }
@@ -85,7 +85,7 @@
         plugins: {
           crosshair: {
             sync: {
-              enabled: false
+              enabled: false,
             },
           },
 
@@ -94,31 +94,33 @@
             mode: "interpolate",
             intersect: false,
             callbacks: {
-              title: function(a, d) {
+              title: function (a, d) {
                 return a[0].element.x.toFixed(2);
               },
-              label: function(d) {
+              label: function (d) {
                 return (
-                  d.chart.data.datasets[d.datasetIndex].label + ": " + d.element.y.toFixed(2)
+                  d.chart.data.datasets[d.datasetIndex].label +
+                  ": " +
+                  d.element.y.toFixed(2)
                 );
-              }
-            }
-          }
+              },
+            },
+          },
         },
         scales: {
           x: {
             min: 2,
-            max: 28
-          }
-        }
+            max: 28,
+          },
+        },
       },
       data: {
         datasets: [
           generateDataset(0, "A", "red"),
           generateDataset(1, "B", "green"),
-          generateDataset(2, "C", "blue")
-        ]
-      }
+          generateDataset(2, "C", "blue"),
+        ],
+      },
     });
 
     var chart2 = new Chart(document.getElementById("chart2").getContext("2d"), {
@@ -130,21 +132,23 @@
             mode: "interpolate",
             intersect: false,
             callbacks: {
-              title: function(a, d) {
+              title: function (a, d) {
                 return a[0].element.x.toFixed(2);
               },
-              label: function(d) {
+              label: function (d) {
                 return (
-                  d.chart.data.datasets[d.datasetIndex].label + ": " + d.element.y.toFixed(2)
+                  d.chart.data.datasets[d.datasetIndex].label +
+                  ": " +
+                  d.element.y.toFixed(2)
                 );
-              }
-            }
-          }
-        }
+              },
+            },
+          },
+        },
       },
       data: {
-        datasets: [generateDataset(0, "A", "red")]
-      }
+        datasets: [generateDataset(0, "A", "red")],
+      },
     });
     var chart3 = new Chart(document.getElementById("chart3").getContext("2d"), {
       type: "scatter",
@@ -155,21 +159,23 @@
             mode: "interpolate",
             intersect: false,
             callbacks: {
-              title: function(a, d) {
+              title: function (a, d) {
                 return a[0].element.x.toFixed(2);
               },
-              label: function(d) {
+              label: function (d) {
                 return (
-                  d.chart.data.datasets[d.datasetIndex].label + ": " + d.element.y.toFixed(2)
+                  d.chart.data.datasets[d.datasetIndex].label +
+                  ": " +
+                  d.element.y.toFixed(2)
                 );
-              }
-            }
-          }
+              },
+            },
+          },
         },
       },
       data: {
-        datasets: [generateDataset(1, "B", "green")]
-      }
+        datasets: [generateDataset(1, "B", "green")],
+      },
     });
     var chart4 = new Chart(document.getElementById("chart4").getContext("2d"), {
       type: "scatter",
@@ -180,21 +186,23 @@
             mode: "interpolate",
             intersect: false,
             callbacks: {
-              title: function(a, d) {
+              title: function (a, d) {
                 return a[0].element.x.toFixed(2);
               },
-              label: function(d) {
+              label: function (d) {
                 return (
-                  d.chart.data.datasets[d.datasetIndex].label + ": " + d.element.y.toFixed(2)
+                  d.chart.data.datasets[d.datasetIndex].label +
+                  ": " +
+                  d.element.y.toFixed(2)
                 );
-              }
-            }
-          }
-        }
+              },
+            },
+          },
+        },
       },
       data: {
-        datasets: [generateDataset(1, "C", "blue", true)]
-      }
+        datasets: [generateDataset(1, "C", "blue", true)],
+      },
     });
 
     var chart5 = new Chart(document.getElementById("chart5").getContext("2d"), {
@@ -203,44 +211,46 @@
         plugins: {
           crosshair: {
             sync: {
-              enabled: false
+              enabled: false,
             },
             pan: {
-              incrementer: 3 // Defaults to 5 if not included.
-            }
+              incrementer: 3, // Defaults to 5 if not included.
+            },
           },
           tooltip: {
             animation: false,
             mode: "interpolate",
             intersect: false,
             callbacks: {
-              title: function(a, d) {
+              title: function (a, d) {
                 return a[0].element.x.toFixed(2);
               },
-              label: function(d) {
+              label: function (d) {
                 return (
-                  d.chart.data.datasets[d.datasetIndex].label + ": " + d.element.y.toFixed(2)
+                  d.chart.data.datasets[d.datasetIndex].label +
+                  ": " +
+                  d.element.y.toFixed(2)
                 );
-              }
-            }
-          }
+              },
+            },
+          },
         },
         animation: {
-          duration: 0
+          duration: 0,
         },
 
-        responsiveAnimationDuration: 0
+        responsiveAnimationDuration: 0,
       },
       data: {
         datasets: [
           generateDataset(0, "A", "red"),
           generateDataset(1, "B", "green"),
-          generateDataset(2, "C", "blue")
-        ]
-      }
+          generateDataset(2, "C", "blue"),
+        ],
+      },
     });
 
-    var panZoom = function(e) {
+    var panZoom = function (e) {
       if (e.keyCode === 37) {
         chart5.panZoom(-5);
       } else if (e.keyCode === 39) {
@@ -249,129 +259,142 @@
     };
 
     window.addEventListener("keydown", panZoom);
-    
-    function generate(x1,x2,init) {
 
-      if(moment.isMoment(x1)) {
+    function generate(x1, x2, init) {
+      if (moment.isMoment(x1)) {
         // translate time to x1, x2
-        x1 = -2 - moment().add(-2*86400, 'seconds').diff(x1, 'seconds') / 86400
-        x2 = 2 - moment().add(2*86400, 'seconds').diff(x2, 'seconds') / 86400
-      } 
+        x1 =
+          -2 -
+          moment()
+            .add(-2 * 86400, "seconds")
+            .diff(x1, "seconds") /
+            86400;
+        x2 =
+          2 -
+          moment()
+            .add(2 * 86400, "seconds")
+            .diff(x2, "seconds") /
+            86400;
+      }
 
       var data = [];
       var x = x1;
-      
-      a = 0.7
-      b = 8
 
-      t = moment().add(x1*86400, 'seconds')
-      t2 = moment().add(x2*86400, 'seconds')
+      a = 0.7;
+      b = 8;
+
+      t = moment().add(x1 * 86400, "seconds");
+      t2 = moment().add(x2 * 86400, "seconds");
 
       while (x <= x2) {
-        y = 0
-        for(var n=0;n<10;n++) {
-          y+= Math.pow(a,n)*Math.cos(Math.pow(b,n)*3.14*x)
+        y = 0;
+        for (var n = 0; n < 10; n++) {
+          y += Math.pow(a, n) * Math.cos(Math.pow(b, n) * 3.14 * x);
         }
-        data.push({x:moment().add(x*86400, 'seconds'), y:y})
+        data.push({ x: moment().add(x * 86400, "seconds"), y: y });
 
-        x += (x2-x1)/100
+        x += (x2 - x1) / 100;
       }
 
-      return data
+      return data;
     }
-    
+
     var chart6 = new Chart(document.getElementById("chart6").getContext("2d"), {
       type: "scatter",
       options: {
         plugins: {
           crosshair: {
             sync: {
-              enabled: false
+              enabled: false,
             },
             pan: {
-              incrementer: 3 // Defaults to 5 if not included.
+              incrementer: 3, // Defaults to 5 if not included.
             },
             callbacks: {
-              afterZoom: () => function(start, end) {
-                setTimeout(function() {
-                  chart6.data.datasets[0].data = generate(moment(start), moment(end))
-                  chart6.update()
-                }, 1000)
-              }
-            }
-          }
+              afterZoom: () =>
+                function (start, end) {
+                  setTimeout(function () {
+                    chart6.data.datasets[0].data = generate(
+                      moment(start),
+                      moment(end)
+                    );
+                    chart6.update();
+                  }, 1000);
+                },
+            },
+          },
         },
         tooltip: {
           mode: "interpolate",
           intersect: false,
           callbacks: {
-            title: function(a, d) {
-              return a[0].xLabel.format('dd D MMM YYYY HH:mm')
+            title: function (a, d) {
+              return a[0].xLabel.format("dd D MMM YYYY HH:mm");
             },
-            label: function(i, d) {
+            label: function (i, d) {
               return (
                 d.datasets[i.datasetIndex].label + ": " + i.yLabel.toFixed(2)
               );
-            }
-          }
+            },
+          },
         },
         animation: {
-          duration: 0
+          duration: 0,
         },
         scales: {
           x: {
-            type: 'time'
+            type: "time",
           },
           y: {
             ticks: {
               min: -3,
-              max: 4
-            }
-          }
+              max: 4,
+            },
+          },
         },
 
-
-        responsiveAnimationDuration: 0
+        responsiveAnimationDuration: 0,
       },
       data: {
-        datasets: [{
-          backgroundColor: 'red',
-          borderColor: 'red',
-          showLine: true,
-          fill: false,
-          label: 'function',
-          pointRadius: 0,
-          data: generate(-2,2),
-          lineTension: 0,
-          interpolate: true
-      }]
-      }
+        datasets: [
+          {
+            backgroundColor: "red",
+            borderColor: "red",
+            showLine: true,
+            fill: false,
+            label: "function",
+            pointRadius: 0,
+            data: generate(-2, 2),
+            lineTension: 0,
+            interpolate: true,
+          },
+        ],
+      },
     });
 
-
-    var chart7 = new Chart(document.getElementById('chart7').getContext("2d"), {
-      type: 'line',
+    var chart7 = new Chart(document.getElementById("chart7").getContext("2d"), {
+      type: "line",
       options: {
         plugins: {
           crosshair: {
             sync: {
-              enabled: false
-            }
-          }
+              enabled: false,
+            },
+          },
         },
       },
 
       data: {
-        labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
-        datasets: [{
-          backgroundColor: 'rgba(0,0,255,0.5)',
-          borderColor: 'rgba(0,0,255,0.5)',
-          showLine: true,
-          data: [1,2,3,2,1,4,2,5,1]
-        }]
-      }
-    })
-
-
+        labels: ["A", "B", "C", "D", "E", "F", "G", "H"],
+        datasets: [
+          {
+            backgroundColor: "rgba(0,0,255,0.5)",
+            borderColor: "rgba(0,0,255,0.5)",
+            showLine: true,
+            data: [1, 2, 3, 2, 1, 4, 2, 5, 1],
+          },
+        ],
+      },
+    });
   </script>
 </html>
